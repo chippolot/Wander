@@ -1,0 +1,61 @@
+PODS:
+  - Nimble (6.0.1)
+  - RxAtomic (4.4.0)
+  - RxBlocking (4.4.0):
+    - RxAtomic (~> 4.4)
+    - RxSwift (~> 4.0)
+  - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
+  - RxSwiftExt (3.4.0):
+    - RxSwiftExt/Core (= 3.4.0)
+    - RxSwiftExt/RxCocoa (= 3.4.0)
+  - RxSwiftExt/Core (3.4.0):
+    - RxSwift (~> 4.0)
+  - RxSwiftExt/RxCocoa (3.4.0):
+    - RxCocoa (~> 4.0)
+    - RxSwiftExt/Core
+  - RxTest (4.4.0):
+    - RxAtomic (~> 4.4)
+    - RxSwift (~> 4.0)
+  - Swinject (2.5.0)
+  - SwinjectStoryboard (2.1.0):
+    - Swinject (~> 2.5)
+
+DEPENDENCIES:
+  - Nimble (~> 6.0.0)
+  - RxBlocking (~> 4.0)
+  - RxCocoa (~> 4.0)
+  - RxSwift (~> 4.0)
+  - RxSwiftExt
+  - RxTest (~> 4.0)
+  - Swinject
+  - SwinjectStoryboard
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Nimble
+    - RxAtomic
+    - RxBlocking
+    - RxCocoa
+    - RxSwift
+    - RxSwiftExt
+    - RxTest
+    - Swinject
+    - SwinjectStoryboard
+
+SPEC CHECKSUMS:
+  Nimble: 1527fd1bd2b4cf0636251a36bc8ab37e81da8347
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxBlocking: 138ad53217434444d6eeeb4fb406a45431d92e31
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
+  RxTest: 19d03286bdc0a3aaea5d61d4cde31fdf4bb8a5ba
+  Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
+  SwinjectStoryboard: 688f096033103e66ffcf6ca678211acd7d7be505
+
+PODFILE CHECKSUM: 17b3342be81262c877f8e390d17723a3cc0871f9
+
+COCOAPODS: 1.5.3
