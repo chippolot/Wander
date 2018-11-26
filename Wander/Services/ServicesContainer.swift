@@ -17,8 +17,14 @@ struct ServicesContainer {
                 return LocationManager()
                 }.inObjectScope(.container)
             
+            container.register(LocationHistoryProtocol.self) { r in
+                let locationManager = r.resolve(LocationManagerProtocol.self)!
+                return LocationHistory(locationManager: locationManager)
+                }.inObjectScope(.container)
+            
             container.storyboardInitCompleted(MainScreenViewController.self) { r, c in
                 c.locationManager = r.resolve(LocationManagerProtocol.self)!
+                c.locationHistory = r.resolve(LocationHistoryProtocol.self)!
             }
         }
     }

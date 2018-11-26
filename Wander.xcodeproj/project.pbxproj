@@ -18,6 +18,7 @@
 		D305724EDEF7038D2B0100F199DF35D4 /* Pods_WanderTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C2F75BA188EB8818283C8C4D428423F /* Pods_WanderTests.framework */; };
 		E1CEB2EC267FFCA0B8DFDCD491277EF4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B463CDD660EE64C04B2A04F42783EEE0 /* LocationManager.swift */; };
 		FE8A9B516A894571E6190ADB48ACCFFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 718F674E799C2D6E0328669EA54640F1 /* LaunchScreen.storyboard */; };
+		FEAA9104F895CA25DF1C04E503B8147F /* LocationHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56EF61ADBFA2AC2023D5C0F744FEBD82 /* LocationHistory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		248E3AF4F062242A14CAA67968840F40 /* Pods_Wander.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wander.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C2F75BA188EB8818283C8C4D428423F /* Pods_WanderTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WanderTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C356374F582AB1D84482C7986C4F34 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		56EF61ADBFA2AC2023D5C0F744FEBD82 /* LocationHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHistory.swift; sourceTree = "<group>"; };
 		5BF61E5BB3A0B536871B39A86C99ECA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D3A2B98DF164ABF7D1E2D634F3EC20B /* Pods-WanderTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WanderTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WanderTests/Pods-WanderTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A93DBB827CCCF159FF4771BE19A0DAD /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
@@ -131,14 +133,6 @@
 			path = Wander;
 			sourceTree = "<group>";
 		};
-		B6AF772382B5907F26F4AF63AE4BADDD /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				7A93DBB827CCCF159FF4771BE19A0DAD /* MainScreenViewController.swift */,
-			);
-			path = "View Controllers";
-			sourceTree = "<group>";
-		};
 		9AA5E9005F99E038A7AE2AAC94E0413E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				52C356374F582AB1D84482C7986C4F34 /* Location.swift */,
+				56EF61ADBFA2AC2023D5C0F744FEBD82 /* LocationHistory.swift */,
 				B463CDD660EE64C04B2A04F42783EEE0 /* LocationManager.swift */,
 			);
 			path = Location;
@@ -173,6 +168,14 @@
 				D2381F5FD552D47D043E463817668FC7 /* WanderTests.swift */,
 			);
 			path = WanderTests;
+			sourceTree = "<group>";
+		};
+		B6AF772382B5907F26F4AF63AE4BADDD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7A93DBB827CCCF159FF4771BE19A0DAD /* MainScreenViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		D7FCDC87E826AA1326A96CC795CF8E1C /* Extensions */ = {
@@ -430,6 +433,7 @@
 			files = (
 				01AD6801129F8D44F876E4A0B56AECB3 /* AppDelegate.swift in Sources */,
 				77CF219BAF3DA08675FBBCA5C6597DAB /* Location.swift in Sources */,
+				FEAA9104F895CA25DF1C04E503B8147F /* LocationHistory.swift in Sources */,
 				E1CEB2EC267FFCA0B8DFDCD491277EF4 /* LocationManager.swift in Sources */,
 				0BBEED9F31EC70F93C833E30FC8060D1 /* MainScreenViewController.swift in Sources */,
 				7758FDD072DCE4E946662FADEDD8BAB4 /* ServicesContainer.swift in Sources */,

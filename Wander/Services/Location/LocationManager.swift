@@ -27,11 +27,12 @@ class LocationManager: NSObject, LocationManagerProtocol {
     }
     
     override init() {
+        super.init()
+        
         self.locationManager.activityType = .fitness
         self.locationManager.distanceFilter = 10
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        
-        super.init()
+        self.locationManager.delegate = self
     }
     
     func requestPermissions() {
