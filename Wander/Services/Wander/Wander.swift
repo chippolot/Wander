@@ -30,7 +30,8 @@ protocol WanderProtocol {
 }
 
 struct WanderStats: WanderStatsProtocol {
-    let duration: DurationSeconds = 0
+    let startTime: Date = Date()
+    var duration: DurationSeconds { return startTime.timeIntervalSinceNow }
     let distance: DistanceMeters = 0
     let elevationGain: DistanceMeters = 0
     let uniqueness: Percentage = 0.0
@@ -49,12 +50,19 @@ class Wander: WanderProtocol {
         self.locationManager = locationManager
         
         if let userLocation = locationManager.userLocation {
-            pathSubject.value += [userLocation]
+            self.update(withLocation: userLocation)
         }
         
         locationManager.userLocationObservable.subscribe(onNext: { [weak self] location in
             guard let `self` = self, let location = location else { return }
-            self.pathSubject.value += [location]
+            self.update(withLocation: location)
         }).disposed(by: disposeBag)
+    }
+    
+    //TODO: Test this
+    //TODO: Update stats
+    func update(withLocation location: Location) {
+        let newPath = self.pathSubject.value + [location]
+        self.pathSubject.value = newPath
     }
 }
