@@ -18,9 +18,13 @@ target 'Wander' do
     inherit! :search_paths
 
     # Pods for testing
-    pod 'Nimble', '~> 6.0.0'
     pod 'RxBlocking', '~> 4.0'
     pod 'RxTest',     '~> 4.0'
+    pod 'Spry'        
+    pod 'Quick'
+    pod 'Nimble'
+    pod 'Spry+Nimble'
+
   end
 
 end

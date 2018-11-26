@@ -175,15 +175,6 @@
 			path = WanderTests;
 			sourceTree = "<group>";
 		};
-		DCEFD939FE97273121F58378431AA221 /* Wander */ = {
-			isa = PBXGroup;
-			children = (
-				4DB9391AE564E04A9CAB3046FB949EB7 /* Wander.swift */,
-				08C96EC742AD750D37617FA6ED05BAB3 /* WanderManager.swift */,
-			);
-			path = Wander;
-			sourceTree = "<group>";
-		};
 		B6AF772382B5907F26F4AF63AE4BADDD /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +188,15 @@
 			children = (
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DCEFD939FE97273121F58378431AA221 /* Wander */ = {
+			isa = PBXGroup;
+			children = (
+				4DB9391AE564E04A9CAB3046FB949EB7 /* Wander.swift */,
+				08C96EC742AD750D37617FA6ED05BAB3 /* WanderManager.swift */,
+			);
+			path = Wander;
 			sourceTree = "<group>";
 		};
 		EA9147D4913A5F2B939274B5B5BD3FF1 = {
@@ -398,8 +398,11 @@
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
 				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
+				"${BUILT_PRODUCTS_DIR}/Spry/Spry.framework",
+				"${BUILT_PRODUCTS_DIR}/Spry+Nimble/Spry_Nimble.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -408,8 +411,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Spry_Nimble.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
