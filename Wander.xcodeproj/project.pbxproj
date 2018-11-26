@@ -12,6 +12,7 @@
 		0BBEED9F31EC70F93C833E30FC8060D1 /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93DBB827CCCF159FF4771BE19A0DAD /* MainScreenViewController.swift */; };
 		103022EF740FB593BD91231A77908502 /* WanderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2381F5FD552D47D043E463817668FC7 /* WanderTests.swift */; };
 		234BC5657E29F2A7E32B414115CD747C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 524C53456391D77266D1F9121EE24A4E /* Main.storyboard */; };
+		2E5B13E43AC53FA1892AFC85F06EDF49 /* FakeLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5FFB453AC0AE25DB545BEDFA5917B81 /* FakeLocationManager.swift */; };
 		3D4B81E590AEA08BFBCEC396C919EB06 /* Pods_Wander.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 248E3AF4F062242A14CAA67968840F40 /* Pods_Wander.framework */; };
 		7758FDD072DCE4E946662FADEDD8BAB4 /* ServicesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7142B27965D895FBF1BFCB4501BF0C /* ServicesContainer.swift */; };
 		77CF219BAF3DA08675FBBCA5C6597DAB /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52C356374F582AB1D84482C7986C4F34 /* Location.swift */; };
@@ -50,6 +51,7 @@
 		A09E13D798E08423DB2A815ACB5F38DE /* Pods-Wander.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wander.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wander/Pods-Wander.release.xcconfig"; sourceTree = "<group>"; };
 		AD1FE1A5D5778B5A7A5BA532C99AEA32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B463CDD660EE64C04B2A04F42783EEE0 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		B5FFB453AC0AE25DB545BEDFA5917B81 /* FakeLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeLocationManager.swift; sourceTree = "<group>"; };
 		C9C3136B30D63B942B98A4D48C9B5C17 /* Wander.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wander.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB028A1AFBD98C666573B45D5BBF4746 /* Pods-Wander.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wander.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wander/Pods-Wander.debug.xcconfig"; sourceTree = "<group>"; };
 		D2381F5FD552D47D043E463817668FC7 /* WanderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WanderTests.swift; sourceTree = "<group>"; };
@@ -169,10 +171,35 @@
 		A8D8869F34290D1F7C6F84AB7DD143B1 /* WanderTests */ = {
 			isa = PBXGroup;
 			children = (
+				142C1A60D34436B323E2FDC54BDC5864 /* Services */,
 				87F094BA523F4DF0C13E7E111204C2CC /* Info.plist */,
 				D2381F5FD552D47D043E463817668FC7 /* WanderTests.swift */,
 			);
 			path = WanderTests;
+			sourceTree = "<group>";
+		};
+		142C1A60D34436B323E2FDC54BDC5864 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C66F1688773F18BAB08BAE723A355924 /* Location */,
+				EFAE296DFE9C7765F971B5CAA9ADA717 /* Wander */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		C66F1688773F18BAB08BAE723A355924 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				B5FFB453AC0AE25DB545BEDFA5917B81 /* FakeLocationManager.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		EFAE296DFE9C7765F971B5CAA9ADA717 /* Wander */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Wander;
 			sourceTree = "<group>";
 		};
 		B6AF772382B5907F26F4AF63AE4BADDD /* View Controllers */ = {
@@ -466,6 +493,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E5B13E43AC53FA1892AFC85F06EDF49 /* FakeLocationManager.swift in Sources */,
 				103022EF740FB593BD91231A77908502 /* WanderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,7 +532,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6D3A2B98DF164ABF7D1E2D634F3EC20B /* Pods-WanderTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AQPT39PUGY;
@@ -680,7 +707,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 14A0DA70A3AE6C1688571B46C323C4F5 /* Pods-WanderTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AQPT39PUGY;
