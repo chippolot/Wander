@@ -14,35 +14,36 @@ typealias DurationSeconds = TimeInterval
 typealias DistanceMeters = Double
 typealias Percentage = Double
 
-protocol WanderStatsProtocol {
-    
-    var duration: DurationSeconds { get }
-    var distance: DistanceMeters { get }
-    var elevationGain: DistanceMeters { get }
-    var uniqueness: Percentage { get }
-}
-
 protocol WanderProtocol {
     var path: [Location] { get }
     var pathObservable: Observable<[Location]> { get }
     
-    var stats: WanderStatsProtocol { get }
+    var stats: WanderStats { get }
+    var statsObservable: Observable<WanderStats> { get }
 }
 
-struct WanderStats: WanderStatsProtocol {
-    let startTime: Date = Date()
-    var duration: DurationSeconds { return startTime.timeIntervalSinceNow }
-    let distance: DistanceMeters = 0
-    let elevationGain: DistanceMeters = 0
-    let uniqueness: Percentage = 0.0
+struct WanderStats: Equatable, Codable, CustomStringConvertible {
+    var startTime: Date = Date()
+    var duration: DurationSeconds { return Date().timeIntervalSince(startTime) }
+    
+    var distance: DistanceMeters = 0
+    var elevationGain: DistanceMeters = 0
+    
+    var description: String {
+        return String(format: "{ duration:%.2fs, distance:%.2fm), elevationGain:%.2fm }", duration, distance, elevationGain)
+    }
 }
 
 class Wander: WanderProtocol {
+    
     var path: [Location] { return pathSubject.value }
     var pathObservable: Observable<[Location]> { return pathSubject.asObservable() }
-    let stats: WanderStatsProtocol = WanderStats()
+    
+    var stats: WanderStats { return statsSubject.value }
+    var statsObservable: Observable<WanderStats> { return statsSubject.asObservable()  }
     
     private let locationManager: LocationManagerProtocol
+    private let statsSubject: Variable<WanderStats> = Variable<WanderStats>(WanderStats())
     private let pathSubject = Variable<[Location]>([])
     private let disposeBag = DisposeBag()
     
@@ -60,9 +61,17 @@ class Wander: WanderProtocol {
     }
     
     //TODO: Test this
-    //TODO: Update stats
     func update(withLocation location: Location) {
-        let newPath = self.pathSubject.value + [location]
-        self.pathSubject.value = newPath
+        let oldPath = path
+        var currentStats = stats
+        
+        if let lastLocation = oldPath.last {
+            currentStats.distance += location.distance(from: lastLocation)
+            currentStats.elevationGain += max(0, location.altitude - lastLocation.altitude)
+            statsSubject.value = currentStats
+        }
+        
+        let newPath = oldPath + [location]
+        pathSubject.value = newPath
     }
 }
