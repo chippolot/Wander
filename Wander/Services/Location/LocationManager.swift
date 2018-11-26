@@ -1,5 +1,5 @@
 //
-//  LocationAPI.swift
+//  LocationManager.swift
 //  Wander
 //
 //  Created by Ben on 11/25/18.
@@ -15,42 +15,46 @@ protocol LocationManagerProtocol {
     func startUpdatingLocation()
     func stopUpdatingLocation()
     
+    var userLocation: Location? { get }
     var userLocationObservable: Observable<Location?> { get }
 }
 
 class LocationManager: NSObject, LocationManagerProtocol {
     private let locationManager = CLLocationManager()
-    private let userLocation: Variable<Location?> = Variable<Location?>(nil)
+    private let userLocationSubject: Variable<Location?> = Variable<Location?>(nil)
     
-    public var userLocationObservable: Observable<Location?> {
-        return self.userLocation.asObservable()
+    var userLocation: Location? {
+        return userLocationSubject.value
+    }
+    var userLocationObservable: Observable<Location?> {
+        return userLocationSubject.asObservable()
     }
     
     override init() {
         super.init()
         
-        self.locationManager.activityType = .fitness
-        self.locationManager.distanceFilter = 10
-        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.delegate = self
+        locationManager.activityType = .fitness
+        locationManager.distanceFilter = 10
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.delegate = self
     }
     
     func requestPermissions() {
         if (CLLocationManager.locationServicesEnabled()) {
-            self.locationManager.requestWhenInUseAuthorization()
-            self.locationManager.requestAlwaysAuthorization()
+            locationManager.requestWhenInUseAuthorization()
+            locationManager.requestAlwaysAuthorization()
         }
     }
     
     func startUpdatingLocation() {
-        DispatchQueue.main.async {
-            self.locationManager.startUpdatingLocation()
+        DispatchQueue.main.async { [weak self] in
+            self?.locationManager.startUpdatingLocation()
         }
     }
     
     func stopUpdatingLocation() {
-        DispatchQueue.main.async {
-            self.locationManager.stopUpdatingLocation()
+        DispatchQueue.main.async { [weak self] in
+            self?.locationManager.stopUpdatingLocation()
         }
     }
 }
@@ -58,7 +62,7 @@ class LocationManager: NSObject, LocationManagerProtocol {
 extension LocationManager: CLLocationManagerDelegate {
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locations.forEach{ location in
-            self.userLocation.value = location
+            userLocationSubject.value = location
         }
     }
 }
