@@ -23,10 +23,9 @@
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Always mode is recommended for this app for improved location tracking
 </string>
-	<key>Privacy - Location When in Use Usage Description</key>
+	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>This information is required to show your current location
-This information is required to show your current location
-</string>
+This information is required to show your current location</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>

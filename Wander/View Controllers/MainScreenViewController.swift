@@ -9,15 +9,27 @@
 import UIKit
 import MapKit
 
+//TODO: Should initialize both LocationManager AND MKMapView here?
+//TODO: Setup core data
+//TODO: Show wander info on screen
 class MainScreenViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
+    var locationManager: LocationManagerProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView.showsUserLocation = true
+        locationManager.requestPermissions()
+        locationManager.startUpdatingLocation()
+        
         mapView.delegate = self
+        mapView.showsUserLocation = true
+    }
+    
+    deinit {
+        locationManager.stopUpdatingLocation()
     }
     
     /*
@@ -33,6 +45,9 @@ class MainScreenViewController: UIViewController {
 
 extension MainScreenViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        mapView.centerCoordinate = userLocation.location!.coordinate
+        let coordinate = userLocation.location!.coordinate
+        mapView.centerCoordinate = coordinate
+        let viewRegion = MKCoordinateRegion(center: coordinate, latitudinalMeters: 200, longitudinalMeters: 200)
+        mapView.setRegion(viewRegion, animated: true)
     }
 }

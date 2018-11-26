@@ -8,20 +8,30 @@
 
 import Foundation
 import CoreLocation
+import RxSwift
 
-protocol LocationAPIProtocol {
+protocol LocationManagerProtocol {
     func requestPermissions()
     func startUpdatingLocation()
     func stopUpdatingLocation()
+    
+    var userLocationObservable: Observable<Location?> { get }
 }
 
-class LocationAPI: LocationAPIProtocol {
+class LocationManager: NSObject, LocationManagerProtocol {
     private let locationManager = CLLocationManager()
+    private let userLocation: Variable<Location?> = Variable<Location?>(nil)
     
-    init() {
+    public var userLocationObservable: Observable<Location?> {
+        return self.userLocation.asObservable()
+    }
+    
+    override init() {
         self.locationManager.activityType = .fitness
         self.locationManager.distanceFilter = 10
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        
+        super.init()
     }
     
     func requestPermissions() {
@@ -40,6 +50,14 @@ class LocationAPI: LocationAPIProtocol {
     func stopUpdatingLocation() {
         DispatchQueue.main.async {
             self.locationManager.stopUpdatingLocation()
+        }
+    }
+}
+
+extension LocationManager: CLLocationManagerDelegate {
+    public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        locations.forEach{ location in
+            self.userLocation.value = location
         }
     }
 }

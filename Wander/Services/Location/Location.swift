@@ -7,14 +7,6 @@
 //
 
 import Foundation
+import CoreLocation
 
-struct Coordinate2D {
-    let latitude: Double
-    let longitude: Double
-}
-
-struct Location {
-    let coordinate: Coordinate2D
-    let altitude: Double
-    let timestamp: Date
-}
+typealias Location = CLLocation
