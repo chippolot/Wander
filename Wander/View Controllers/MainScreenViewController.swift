@@ -10,7 +10,6 @@ import UIKit
 import MapKit
 import RxSwift
 
-//TODO: Should initialize both LocationManager AND MKMapView here?
 //TODO: Setup core data
 //TODO: Show wander info on screen
 class MainScreenViewController: UIViewController {
@@ -48,16 +47,6 @@ class MainScreenViewController: UIViewController {
     deinit {
         locationManager.stopUpdatingLocation()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 extension MainScreenViewController: MKMapViewDelegate {
