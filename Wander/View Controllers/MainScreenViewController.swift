@@ -42,8 +42,6 @@ class MainScreenViewController: UIViewController {
             let coordinates = locations.map{ $0.coordinate }
             self.pathOverlay = MKPolyline(coordinates: coordinates, count: coordinates.count)
             self.mapView.addOverlay(self.pathOverlay!)
-            
-            print(self.wander.stats)
         }).disposed(by: disposeBag)
     }
     
