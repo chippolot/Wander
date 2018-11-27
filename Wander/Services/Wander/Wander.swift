@@ -22,7 +22,7 @@ protocol WanderProtocol {
     var statsObservable: Observable<WanderStats> { get }
 }
 
-struct WanderStats: Equatable, Codable, CustomStringConvertible {
+struct WanderStats: Equatable, CustomStringConvertible {
     var startTime: Date = Date()
     var duration: DurationSeconds { return Date().timeIntervalSince(startTime) }
     
@@ -60,7 +60,6 @@ class Wander: WanderProtocol {
         }).disposed(by: disposeBag)
     }
     
-    //TODO: Test this
     func update(withLocation location: Location) {
         let oldPath = path
         var currentStats = stats

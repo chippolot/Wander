@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import Spry
 
 @testable import Wander
 
@@ -25,22 +26,22 @@ class FakeLocationManager: LocationManagerProtocol, Spryable {
     }
     
     func requestPermissions() {
-        return spryify()
+        return spryify(fallbackValue: Void())
     }
     
     func startUpdatingLocation() {
-        return spryify()
+        return spryify(fallbackValue: Void())
     }
     
     func stopUpdatingLocation() {
-        return spryify()
+        return spryify(fallbackValue: Void())
     }
     
     var userLocation: Location? {
-        return stubbedValue()
+        return stubbedValue(fallbackValue: nil)
     }
     
     var userLocationObservable: Observable<Location?> {
-        return stubbedValue()
+        return stubbedValue(fallbackValue: Observable.never())
     }
 }
